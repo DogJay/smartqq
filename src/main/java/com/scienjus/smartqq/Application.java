@@ -32,13 +32,28 @@ public class Application {
             }
         });
         //登录成功后便可以编写你自己的业务逻辑了
-        List<Category> categories = client.getFriendListWithCategory();
-        for (Category category : categories) {
-            System.out.println(category.getName());
-            for (Friend friend : category.getFriends()) {
-                System.out.println("————" + friend.getNickname());
-            }
+//        client.sendMessageToFriend(Long.parseLong("2657857937"),"你好");
+//        client.sendMessageToFriend(Long.parseLong("2699094582"),"你好");
+
+//        List<Group> groupList = client.getGroupList();
+//        for (Group group : groupList) {
+//            System.err.println(group.getId()+"\t\t"+group.getName());
+//        }
+        for (int i = 0; i < 1000; i++) {
+            client.sendMessageToGroup(Long.parseLong("2082950862"), "大家好，我是机器人");
+
         }
+//        List<Category> categories = client.getFriendListWithCategory();
+//        for (Category category : categories) {
+//            System.out.println(category.getName());
+//            for (Friend friend : category.getFriends()) {
+//                if (friend.getMarkname().equals("文化事业部总经理")) {
+//                    System.out.println("————" + friend.getNickname() + "\tfirendID：" + friend.getUserId() + "\tfriendName:" + friend.getMarkname());
+//                    client.sendMessageToFriend(Long.parseLong(friend.getUserId() + ""), "我是机器人");
+//                }
+//            }
+//        }
+
         //使用后调用close方法关闭，你也可以使用try-with-resource创建该对象并自动关闭
 //        try {
 //            client.close();
