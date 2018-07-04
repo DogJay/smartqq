@@ -37,7 +37,7 @@ public class SmartQQClient implements Closeable {
 
     //发生ngnix 404 时的重试次数
     private static int retryTimesOnFailed = 3;
-    
+
     //消息id，这个好像可以随便设置，所以设成全局的
     private static long MESSAGE_ID = 43690001;
 
@@ -136,8 +136,9 @@ public class SmartQQClient implements Closeable {
     //用于生成ptqrtoken的哈希函数
     private static int hash33(String s) {
         int e = 0, n = s.length();
-        for (int i = 0; n > i; ++i)
+        for (int i = 0; n > i; ++i) {
             e += (e << 5) + s.charAt(i);
+        }
         return 2147483647 & e;
     }
 
@@ -182,7 +183,7 @@ public class SmartQQClient implements Closeable {
         int retryTimes4Vfwebqq = retryTimesOnFailed;
         while (response.getStatusCode() == 404 && retryTimes4Vfwebqq > 0) {
             response = get(ApiURL.GET_VFWEBQQ, ptwebqq);
-            retryTimes4Vfwebqq--; 
+            retryTimes4Vfwebqq--;
         }
         this.vfwebqq = getJsonObjectResult(response).getString("vfwebqq");
     }
@@ -614,7 +615,7 @@ public class SmartQQClient implements Closeable {
         if (url.getReferer() != null) {
             request.addHeader("Referer", url.getReferer());
         }
-        return request.text(StandardCharsets.UTF_8); 
+        return request.text(StandardCharsets.UTF_8);
     }
 
     //发送post请求
@@ -674,7 +675,7 @@ public class SmartQQClient implements Closeable {
         } else if (retCode != 0) {
             switch (retCode) {
                 case 103: {
-                    LOGGER.error("请求失败，Api返回码[103]。你需要进入http://w.qq.com，检查是否能正常接收消息。如果可以的话点击[设置]->[退出登录]后查看是否恢复正常"); 
+                    LOGGER.error("请求失败，Api返回码[103]。你需要进入http://w.qq.com，检查是否能正常接收消息。如果可以的话点击[设置]->[退出登录]后查看是否恢复正常");
                     break;
                 }
                 case 100100: {
