@@ -6,6 +6,7 @@ import com.scienjus.smartqq.model.*;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * @author ScienJus
@@ -32,17 +33,27 @@ public class Application {
             }
         });
         //登录成功后便可以编写你自己的业务逻辑了
-//        client.sendMessageToFriend(Long.parseLong("2657857937"),"你好");
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            client.sendMessageToFriend(Long.parseLong("2657857937"), scanner.nextLine());
+        }
 //        client.sendMessageToFriend(Long.parseLong("2699094582"),"你好");
 
 //        List<Group> groupList = client.getGroupList();
 //        for (Group group : groupList) {
 //            System.err.println(group.getId()+"\t\t"+group.getName());
 //        }
-        for (int i = 0; i < 1000; i++) {
-            client.sendMessageToGroup(Long.parseLong("2082950862"), "大家好，我是机器人");
 
-        }
+//        for (int i = 0; i < 1000; i++) {
+//            while (true) {
+//                try {
+//                    Thread.sleep(3000);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//                client.sendMessageToGroup(Long.parseLong("2082950862"), "大家好，我是机器人");
+//            }
+//        }
 //        List<Category> categories = client.getFriendListWithCategory();
 //        for (Category category : categories) {
 //            System.out.println(category.getName());
